@@ -8,7 +8,7 @@ export const obtenerEjerciciosModulo: RequestHandler = async (req, res) => {
   const { uid, mid } = req.params;
 
   try {
-    const ejercicios = await Ejercicio.find({ mid: mid, evaluacion: false }).sort({ numero: 1 });
+    const ejercicios = await Ejercicio.find({ mid: mid }).sort({ numero: 1 });
 
     return res.json({
       ok: true,
@@ -28,7 +28,7 @@ export const obtenerEvaluacionesModulo: RequestHandler = async (req, res) => {
   const { uid, mid } = req.params;
 
   try {
-    const ejercicios = await Ejercicio.find({ mid: mid, evaluacion: true }).sort({ numero: 1 });
+    const ejercicios = await Ejercicio.find({ mid: mid }).sort({ numero: 1 });
 
     return res.json({
       ok: true,
